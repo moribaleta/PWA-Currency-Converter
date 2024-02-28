@@ -78,3 +78,11 @@ Once both backend and frontend servers are running, users can access the currenc
 
 4. **Offline Detection**:
    - The application is capable of detecting if the device is offline, providing appropriate feedback to the user.
+
+## References
+
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Progressive Web Apps - Web Fundamentals](https://developers.google.com/web/progressive-web-apps)
+- [Service Workers - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+- [Building a Progressive Web App (PWA) with React: Offline Capabilities](https://manoj-shu100.medium.com/building-a-progressive-web-app-pwa-with-react-offline-capabilities-56aab3971de8)
