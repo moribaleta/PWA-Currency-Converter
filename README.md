@@ -2,7 +2,7 @@
 
 Sample project exploring, PWA and Offline Caching Features
 
-In this tutorial, we'll dive into building a dynamic currency converter using React and harnessing the power of Progressive Web App (PWA) technology. With a focus on offline caching, we'll ensure users can access currency conversion functionalities even when connectivity is limited or absent. By following along, you'll learn how to leverage React's flexibility to create a seamless user experience and explore the potential of PWAs to enhance accessibility and convenience.
+In this project, we'll dive into building a dynamic currency converter using React and harnessing the power of Progressive Web App (PWA) technology. With a focus on offline caching, we'll ensure users can access currency conversion functionalities even when connectivity is limited or absent. By following along, you'll learn how to leverage React's flexibility to create a seamless user experience and explore the potential of PWAs to enhance accessibility and convenience.
 
 ## Overview
 
@@ -12,7 +12,7 @@ This project aims to create a currency converter application with a backend runn
 
 The project is divided into two main folders:
 
-1. `node` (backend): Contains the Node.js backend code.
+1. `deno` (backend): Contains the Node.js backend code.
 2. `react` (frontend): Houses the React PWA frontend code.
 
 ## Backend Setup
