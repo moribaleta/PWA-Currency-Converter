@@ -31,4 +31,5 @@ export const currencies = [
   { name: 'Sri Lankan Rupee', symbol: 'Rs', conversionRate: 202.5 },
   { name: 'Pakistani Rupee', symbol: '₨', conversionRate: 176.25 },
   { name: 'Cambodian Riel', symbol: '៛', conversionRate: 4100 },
+  { name: 'Cambodian Riel', symbol: '៛', conversionRate: 4100 },
 ];

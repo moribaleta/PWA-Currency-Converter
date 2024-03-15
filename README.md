@@ -86,3 +86,4 @@ Once both backend and frontend servers are running, users can access the currenc
 - [Progressive Web Apps - Web Fundamentals](https://developers.google.com/web/progressive-web-apps)
 - [Service Workers - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 - [Building a Progressive Web App (PWA) with React: Offline Capabilities](https://manoj-shu100.medium.com/building-a-progressive-web-app-pwa-with-react-offline-capabilities-56aab3971de8)
+- [Create React App Template](https://create-react-app.dev/docs/making-a-progressive-web-app/)

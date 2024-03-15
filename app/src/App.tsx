@@ -1,6 +1,6 @@
 import './App.css';
 
-import { ChangeEventHandler, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Currency } from 'shared';
 import Dropdown from './components/Dropdown';
@@ -23,21 +23,12 @@ function App() {
   const [fromConversion, setFromConversion] = useState<number>(1);
   const [toConversion, setToConversion] = useState<number>(1);
   const [fromAmount, onSetFromAmount] = useState<number>(0);
-  const [toAmount, onSetToAmount] = useState<number>();
+  const [toAmount, onSetToAmount] = useState<number>(0);
 
-  const onValueFromChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    onSetFromAmount(Number(event.target.value));
+  const onPress = () => {
+    onSetToAmount(convertCurrency(fromAmount, fromConversion, toConversion));
+    onSetFromAmount(convertCurrency(toAmount, toConversion, fromConversion));
   };
-
-  useEffect(() => {
-    console.log({
-      fromAmount,
-      fromConversion,
-      toConversion,
-    });
-    onSetToAmount(convertCurrency(fromAmount, fromConversion, toConversion));
-    onSetToAmount(convertCurrency(fromAmount, fromConversion, toConversion));
-  }, [fromAmount, fromConversion, toAmount, toConversion]);
 
   return (
     <div className="App">
@@ -48,9 +39,7 @@ function App() {
               id="fromInput"
               type="number"
               value={fromAmount}
-              onChange={(event) =>
-                setFromConversion(event.target.valueAsNumber)
-              }
+              onChange={(event) => onSetFromAmount(event.target.valueAsNumber)}
             />
             <Dropdown list={currencies} onSetCurrency={setFromConversion} />
           </p>
@@ -58,11 +47,14 @@ function App() {
             <input
               id="toInput"
               type="number"
-              onChange={(event) => setToConversion(event.target.valueAsNumber)}
+              onChange={(event) => onSetToAmount(event.target.valueAsNumber)}
               value={toAmount}
             />
             <Dropdown list={currencies} onSetCurrency={setToConversion} />
           </p>
+          <button title="Convert" onClick={onPress}>
+            Convert From
+          </button>
         </div>
         {}
       </div>
