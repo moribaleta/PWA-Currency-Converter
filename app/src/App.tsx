@@ -27,7 +27,7 @@ function App() {
 
   const onPress = () => {
     onSetToAmount(convertCurrency(fromAmount, fromConversion, toConversion));
-    onSetFromAmount(convertCurrency(toAmount, toConversion, fromConversion));
+    //onSetFromAmount(convertCurrency(toAmount, toConversion, fromConversion));
   };
 
   return (
@@ -44,12 +44,13 @@ function App() {
             <Dropdown list={currencies} onSetCurrency={setFromConversion} />
           </p>
           <p>
-            <input
+            {/* <input
               id="toInput"
               type="number"
               onChange={(event) => onSetToAmount(event.target.valueAsNumber)}
               value={toAmount}
-            />
+            /> */}
+            <p>{toAmount}</p>
             <Dropdown list={currencies} onSetCurrency={setToConversion} />
           </p>
           <button title="Convert" onClick={onPress}>
