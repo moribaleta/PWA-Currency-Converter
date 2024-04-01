@@ -25,5 +25,3 @@ export const CachingManager = {
 };
 
 CachingManager.loadFromLocal();
-
-export default CachingManager;

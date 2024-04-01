@@ -1,3 +1,5 @@
+export const QUERY_KEY = 'QUERIES';
+
 export const currencies = [
   { name: 'US Dollar', symbol: '$', conversionRate: 1 },
   { name: 'Euro', symbol: '€', conversionRate: 0.91 },
