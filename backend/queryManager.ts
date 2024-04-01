@@ -6,6 +6,7 @@ export const QueryManager = {
   addQuery: (query: Query) => {
     const queries = QueryManager.getQueries();
     queries.push(query);
+    console.log(queries);
     CachingManager.setCache(QUERY_KEY, queries);
   },
   getQueries: (): Query[] => {

@@ -8,6 +8,8 @@ import { Query } from './types.ts';
 
 const app = express();
 app.use(cors());
+app.use(express.json());
+//app.use(bodyParser.json());
 
 app.get('/', (_req, res) => {
   res.send('Welcome to the Dinosaur API!');
@@ -18,8 +20,10 @@ app.get('/getCurrencies', (_req, res) => {
 });
 
 app.post('/addQuery', (req, res) => {
-  const val = req.body as Query;
-  QueryManager.addQuery(val);
+  //console.log('@addQuery', req.body);
+  const query = req.body as Query;
+  console.log(query);
+  QueryManager.addQuery(query);
   res.send({ success: true });
 });
 

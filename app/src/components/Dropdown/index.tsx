@@ -4,7 +4,7 @@ import { Currency } from 'shared';
 
 type DropdownProps = {
   list: Currency[];
-  onSetCurrency: (conversionRate: number) => void;
+  onSetCurrency: (name: string) => void;
 };
 
 const Dropdown: React.FunctionComponent<DropdownProps> = ({
@@ -13,14 +13,14 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
 }) => {
   const renderItem = (item: Currency) => {
     return (
-      <option value={item.conversionRate}>
+      <option value={item.name}>
         {item.symbol} - {item.name}
       </option>
     );
   };
 
   const onValueChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
-    onSetCurrency(Number(event.target.value));
+    onSetCurrency(event.target.value);
   };
 
   return (
