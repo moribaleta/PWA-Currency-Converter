@@ -1,6 +1,6 @@
 import './App.css';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { Currency, Query } from 'shared';
 import Dropdown from './components/Dropdown';
@@ -11,8 +11,7 @@ function App() {
   const [currencies, setCurrencies] = useState<Currency[]>([]);
   const [queries, setQueries] = useState<Query[]>([]);
 
-  useEffect(() => {
-    console.log('im here');
+  const loadInfo = useCallback(() => {
     getCurrencies()
       .then((results) => {
         console.log(results);
@@ -30,6 +29,10 @@ function App() {
       })
       .catch((err) => console.error('@App', err));
   }, []);
+
+  useEffect(() => {
+    loadInfo();
+  }, [loadInfo]);
 
   useEffect(() => {
     window.addEventListener('offline', (e) => {

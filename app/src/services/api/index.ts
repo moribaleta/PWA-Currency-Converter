@@ -3,6 +3,8 @@ import { Currency, Query } from 'shared';
 
 const BASE_URL = 'http://192.168.68.107:8000';
 const cache: Record<string, any> = {};
+const controller = new AbortController();
+const timeoutId = setTimeout(() => controller.abort(), 5000);
 
 export const caching = async (key: string, value: any) => {
   cache[key] = value;
@@ -14,13 +16,14 @@ export const getCurrencies = async (): Promise<Currency[]> => {
 
   currencies = CachingManager.getCache('getCurrencies');
   try {
-    currencies = await (await fetch(BASE_URL + '/getCurrencies'))
+    currencies = await (
+      await fetch(BASE_URL + '/getCurrencies', { signal: controller.signal })
+    )
       .json()
       .then((val: Currency[]) => val);
-    console.log(currencies);
     CachingManager.setCache('getCurrencies', currencies);
   } catch (err) {
-    console.error(err);
+    console.error('@getCurrencies', err);
   }
   return currencies;
 };
@@ -35,10 +38,11 @@ export const sendQuery = async (query: Query) => {
         'Content-Type': 'application/json; charset=utf-8',
       },
       body: JSON.stringify(query),
+      signal: controller.signal,
     });
     console.log(result);
   } catch (err) {
-    console.error(err);
+    console.error('@sendQuery', err);
   }
 };
 
@@ -47,13 +51,15 @@ export const getQueries = async () => {
 
   queries = CachingManager.getCache('getQueries');
   try {
-    queries = await (await fetch(BASE_URL + '/getQueries'))
+    queries = await (
+      await fetch(BASE_URL + '/getQueries', { signal: controller.signal })
+    )
       .json()
       .then((val: Query[]) => val);
     console.log(queries);
     CachingManager.setCache('getQueries', queries);
   } catch (err) {
-    console.error(err);
+    console.error('@getQueries', err);
   }
   return queries;
 };
