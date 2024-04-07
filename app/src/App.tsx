@@ -31,6 +31,16 @@ function App() {
       .catch((err) => console.error('@App', err));
   }, []);
 
+  useEffect(() => {
+    window.addEventListener('offline', (e) => {
+      console.log('offline');
+    });
+
+    window.addEventListener('online', (e) => {
+      console.log('online');
+    });
+  }, []);
+
   const [fromConversion, setFromConversion] = useState<string>();
   const [toConversion, setToConversion] = useState<string>();
   const [fromAmount, onSetFromAmount] = useState<number>(0);

@@ -23,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "remove-modules": "rm -rf node_modules",
+    "force-install": "yarn remove-modules & yarn install"
   },
   "eslintConfig": {
     "extends": [

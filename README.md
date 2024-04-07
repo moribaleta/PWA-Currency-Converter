@@ -12,21 +12,18 @@ This project aims to create a currency converter application with a backend runn
 
 The project is divided into two main folders:
 
-1. `deno` (backend): Contains the Node.js backend code.
-2. `react` (frontend): Houses the React PWA frontend code.
+1. `backend` (Deno): Contains the backend code handling api calls and offline storage.
+2. `app` (React): Contains the React PWA frontend code.
+3. `shared` (ts) : Contains common files used by backend and app. ie types, classes, objects
 
 ## Backend Setup
 
 To run the backend, follow these steps:
 
 1. Navigate to the `backend` directory.
-2. Install dependencies by running:
+2. Start the backend server:
    ```
-   npm install
-   ```
-3. Start the backend server:
-   ```
-   npm start
+   deno task dev-watch
    ```
 
 The backend server will start running at the specified port (default is 3000).
@@ -38,15 +35,15 @@ To run the frontend PWA, proceed as follows:
 1. Navigate to the `frontend` directory.
 2. Install dependencies by running:
    ```
-   npm install
+   yarn install
    ```
 3. Build the React app for production:
    ```
-   npm run build
+   yarn build
    ```
 4. Start the frontend server:
    ```
-   npm start
+   yarn start
    ```
 
 The React PWA will be accessible at the specified port (default is 3000) and can be accessed via a web browser.
@@ -57,7 +54,7 @@ Once both backend and frontend servers are running, users can access the currenc
 
 ## Technologies Used
 
-- Node.js
+- Deno
 - React
 - Progressive Web App (PWA) features
 - Offline caching
@@ -87,8 +84,4 @@ Once both backend and frontend servers are running, users can access the currenc
 - [Service Workers - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 - [Building a Progressive Web App (PWA) with React: Offline Capabilities](https://manoj-shu100.medium.com/building-a-progressive-web-app-pwa-with-react-offline-capabilities-56aab3971de8)
 - [Create React App Template](https://create-react-app.dev/docs/making-a-progressive-web-app/)
-
-## Database
-
-- using supabase
-  - password: OCwxXRXGTHZ4Netb
+- [Turning a React app into an installable PWA with offline detection, service workers and theming](https://medium.com/@alexgurr/turning-a-react-app-into-an-installable-pwa-with-offline-detection-service-workers-and-theming-8a996b61ae31)
